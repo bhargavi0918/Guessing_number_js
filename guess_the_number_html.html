@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number (javascript project) </title>
+    <link rel="stylesheet" href="guess_the_number.css">
+</head>
+<body>
+    <!--HTML CODE-->
+    <div class="bg-container d-flex flex-column justify-content-center">
+        <h1 class="guessing-game-heading">Guessing Game</h1>
+        <p class="description">
+            Find out the right number between 1 to 100
+        </p>
+        <div class="guessing-number-card d-flex flex-column justify-content-center">
+            <h2 class="guessing-card-heading">Guess the number</h2>
+            <input type="text" class="user-input" id="userInput"/>
+            <button class="check-button" onclick="checkGuess()">Check</button>
+            <p class="game-result" id="gameResult"></p>
+        </div>
+    </div>
+    <!---->
+    <!--  JavaScript Code  -->
+    <script>
+        let gameResult = document.getElementById("gameResult");
+        let userInput = document.getElementById("userInput");
+        let randomNumber = Math.ceil(Math.random()*100);
+
+        function checkGuess(){
+            let guessedNumber = parseInt(userInput.value);
+
+            if (guessedNumber > randomNumber){
+                gameResult.textContent = "Too High! Try Again.";
+                gameResult.style.backgroundColor = "yellow";
+            }
+            else if(guessedNumber < randomNumber){
+                gameResult.textContent = "Too Low! Try Again."
+                gameResult.style.backgroundColor = "yellow";
+            }
+            else if(guessedNumber === randomNumber){
+                gameResult.textContent = "Congratulations! You got it right.";
+                gameResult.style.backgroundColor = "yellow";
+            }
+            else{
+
+                gameResult.textContent = "Please provide a valid input.";
+                gameResult.style.backgroundColor = "yellow"
+            }
+        }
+
+    </script>
+    <!----->
+    
+</body>
+</html>
